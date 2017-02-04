@@ -1,0 +1,376 @@
+body {
+    background-color: #580000;
+    color: darkred;
+    font-size: 8px;
+    white-space: -moz-pre-wrap !important;
+    word-break: break-word;
+    white-space: normal;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    width: 100%;
+    word-break: keep-all;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:link:active,
+a:visited:active {
+    color: inherit;
+}
+
+.main-header {
+    width: 100%;
+    height: 5vw;
+    background-color: gold;
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    word-break: keep-all;
+    font-size: 5vw;
+    font-family: 'Barrio', cursive;
+}
+
+.headerImage {
+    height: 100%;
+}
+
+.main-nav {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    text-align: right;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    height: 5vw;
+    align-items: center;
+    word-wrap: none;
+    word-break: none;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.ul-list:hover {
+    color: gold;
+    background: darkred;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 28px;
+    border: none;
+    width: auto;
+}
+
+.home {
+    font-size: 10px;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.background {
+    height: 88VH;
+    width: 100%;
+    background: url(../images/background-images/dgddxrrft80-cameron-kirby.jpg) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 28px;
+    color: gold;
+    font-weight: bold;
+}
+
+.loginBackground {
+    height: 88VH;
+    width: 100%;
+    background: url(../images/background-images/kjsdwqqmadk-yamon-figurs.jpg) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.loginButton {
+    background: gold;
+    color: darkred;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 42px;
+    border: none;
+    width: auto;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+    background: darkred;
+    color: gold;
+    font-weight: bold;
+}
+
+.loginButton-2 {
+    background: gold;
+    color: darkred;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 60px;
+    border: none;
+    width: 220px;
+}
+
+.loginButton-2:hover {
+    cursor: pointer;
+    background: darkred;
+    color: gold;
+    font-weight: bold;
+}
+
+.logoutButton {
+    background: gold;
+    color: darkred;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 60px;
+    border: none;
+    width: 220px;
+}
+
+.logoutButton:hover {
+    background: darkred;
+    color: gold;
+}
+
+.buttons {
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.googleLinks {
+    color: darkred;
+    text-decoration: none;
+    padding-bottom: 4px;
+}
+
+.googleLinks:hover {
+    color: gold;
+    font-weight: bold;
+    text-decoration: none;
+    padding-bottom: 8px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    font-size: 32px;
+    font-family: 'Barrio', cursive;
+}
+
+.searchMenu {
+    width: 10vw;
+    background: gold;
+}
+
+.shoeDisplay {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.side-by-side {
+    border: .5px solid darkred;
+    height: 100px;
+    width: 100px;
+}
+
+.searchBox {
+    width: 9.8vw;
+    height: 10px;
+}
+
+.shoeImage {
+    width: 425px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.shoeBox {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 450px;
+    width: 450px;
+    position: relative;
+    margin: 15px 15px;
+    box-shadow: 0 4px 6px 0 #260000;
+    transition: 0.3s;
+}
+
+.shoeBox:hover {
+    box-shadow: 0 8px 12px 0 #260000;
+}
+
+.shoeTitle {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.imageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.picAndData {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.singleImageBox {
+    display: flex;
+}
+
+.shoeData {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    color: gold;
+    margin: auto;
+}
+
+.singleShoeTitle {
+    font-family: 'Barrio', cursive;
+    font-size: 36px;
+    font-weight: bold;
+    /*justify-content: center;
+    align-content: center;*/
+}
+
+.shoeInfo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 24px;
+}
+
+.anchor:active {
+    background: black;
+    /*color:black;*/
+}
+
+.buttonsDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.profileReturnButton {
+    background: gold;
+    color: darkred;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 24px;
+    border: none;
+    width: 200px;
+}
+
+.addShoeToProfileButton {
+    background: gold;
+    color: darkred;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 24px;
+    border: none;
+    width: 250px;
+}
+
+.googCalButton {
+    background: gold;
+    color: darkred;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 24px;
+    border: none;
+    width: 200px;
+}
+
+.googleDiv {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 60px;
+}
+
+.googleText {
+    font-size: 16px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 4096px) {
+    .menu {
+        display: none;
+    }
+}
+
+@media (max-width: 1920px) {
+    .menu {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    .menu {
+        display: none;
+    }
+}
+
+@media(max-width: 455px) {}

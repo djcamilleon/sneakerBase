@@ -1,0 +1,1 @@
+delete shoes where id = $1;

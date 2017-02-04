@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="sneakerBase">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SneakerBase</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <header>
+        <div class='main-header'>
+            <img src='./images/small-cropped-home-page-kristian-olsen.png' class='headerImage' />
+            <h1 class='title'>SneakerBase</h1>
+            <nav class='main-nav'>
+                <ul class="links">
+                    <li class="ul-list" bng-hide="loggedIn"><a ui-sref='login'>LOGIN</a></li>
+                    <li ng-show="loggedIn"><a ui-sref='logout'>LOGOUT</a></li>
+                    <li class="ul-list"><a ui-sref='home'>HOME</a></li>
+                    <li class="ul-list"><a ui-sref='userPage'>PROFILE</a></li>
+                    <li class="ul-list"><a ui-sref='add_new_shoe'>NEW SHOE</a></li>
+                    <li class="ul-list"><a ui-sref='about'>ABOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+    <ui-view></ui-view>
+
+
+
+
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js'></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/services/mainSvc.js"></script>
+    <script src="./js/controllers/homeCtrl.js"></script>
+    <script src="./js/controllers/loginCtrl.js"></script>
+    <script src="./js/controllers/userPageCtrl.js"></script>
+    <script src="./js/controllers/singleShoeCtrl.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>-->
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>-->
+
+
+
+    <!--<script src="./controllers/homeCtrl.js"></script>
+<script src="./controllers/searchCtrl.js"></script>
+<script src="./controllers/resourcesCtrl.js"></script>
+<script src="./controllers/aboutCtrl.js"></script>
+<script src="./services/mainService.js"></script>
+<script src="./services/searchService.js"></script>
+<script src="./directives/searchDirective.js"></script>
+<script src="./js/menu-bar.js"></script>-->
+
+</body>
+
+</html>

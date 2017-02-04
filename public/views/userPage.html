@@ -1,0 +1,21 @@
+<section class="profile">
+
+    <section class="searchMenu">
+        <input class="searchBox" ng-model="search"></input>
+    </section>
+
+
+    <section class="shoeDisplay">
+        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search" ng-click="singleShoeView(shoe)">
+            <div class="shoeBox">
+                <div class="imageBox">
+                    <img class="shoeImage" src="{{shoe.photos[0]}}" />
+                </div>
+                <div class="shoeTitle">
+                    {{shoe.brand}} {{shoe.model}}
+                    <br> {{shoe.nickname}}
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

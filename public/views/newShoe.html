@@ -1,0 +1,251 @@
+<div class="addShoePageColorV2">
+    <!--<div><span class="spanAlignment"><u>Add New Shoe</u></span>
+        <div>-->
+    <h1 class="addShoeHeader"><u>Add New Shoe</u></h1>
+    <h2 class="addShoeHeader2">Get Started Below</h2>
+
+    <form class="form-group shoeForm" role="form">
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Brand:</label>
+            <div class="col-lg-3">
+                <input class="form-control" ng-model='register.brand' type="text" placeholder="Brand">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Model:</label>
+            <div class="col-lg-4">
+                <input class="form-control" ng-model='register.model' type="text" placeholder="Model">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Nickname:</label>
+            <div class="col-lg-4">
+                <input class="form-control" ng-model='register.nickname' type="text" placeholder="Nickname">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Colorway:</label>
+            <div class="col-lg-4">
+                <input class="form-control" ng-model='register.colorway' type="text" placeholder="Colorway">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Primary Color:</label>
+            <div class="col-lg-3">
+                <input class="form-control" ng-model='register.primary_color' type="text" placeholder="Primary Color - The predominate color">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Details:</label>
+            <div class="col-lg-8">
+                <input class="form-control" ng-model='register.details' type="text" placeholder="Details - Cool additional information about the shoe">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Release Date:</label>
+            <div class="col-lg-4">
+                <input class="form-control" ng-model='register.release_date' type="text" placeholder="Release Date - Typed out as February 25, 2013">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Price:</label>
+            <div class="col-lg-3">
+                <input class="form-control" ng-model='register.price' type="text" placeholder="Price - At the time of release">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Associated Athlete:</label>
+            <div class="col-lg-3">
+                <input class="form-control" ng-model='register.associated_athlete' type="text" placeholder="Associated Athlete - If applicable">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Forefoot Cushioning:</label>
+            <div class="col-lg-4">
+                <input class="form-control" ng-model='register.forefoot_cushioning_technology' type="text" placeholder="Forefoot Cushioning Technology - If applicable">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Heel Cushioning:</label>
+            <div class="col-lg-4">
+                <input class="form-control" ng-model='register.heel_cushioning_technology' type="text" placeholder="Heel Cushioning Technology - If applicable">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Type:</label>
+            <div class="col-lg-4">
+                <input class="form-control" ng-model='register.type' type="text" placeholder="Type - Basketball, Cross Training, Running, etc.">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="labels"></label>
+            <div class="col-md-8">
+                <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoe(register)' value="Submit">
+                <span></span>
+                <input type="reset" class="btn btn-default">
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<div class="addShoeHeader"><span><u>Add Features</u></span>
+    <div>
+        <h1 class="addShoeHeader2">Add features for your shoe here. Features are unique aspects or design touches about this particular model or colorway.</h1>
+
+        <form class="form-group shoeForm" role="form">
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Feature 1:</label>
+                <div class="col-lg-6">
+                    <input class="form-control" ng-model='register.feature[0]' type="text" placeholder="Feature 1 - if applicable">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Feature 2:</label>
+                <div class="col-lg-6">
+                    <input class="form-control" ng-model='register.feature[1]' type="text" placeholder="Feature 2 - if applicable">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="labels"></label>
+                <div class="col-md-8">
+                    <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoeFeatures(register)' value="Submit">
+                    <span></span>
+                    <input type="reset" class="btn btn-default">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="addShoeHeader"><span><u>Add Links</u></span>
+        <div>
+            <h1 class="addShoeHeader2">Add links to webpages to get more information about this shoe. Make sure the first one provides the most information about this model!</h1>
+
+            <form class="form-group shoeForm" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Link 1:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model='register.url_1[0]' type="text" placeholder="Link 1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Link 2:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model='register.url_1[1]' type="text" placeholder="Link 2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Link 3:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model='register.url_1[2]' type="text" placeholder="Link 3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="labels"></label>
+                    <div class="col-md-8">
+                        <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoeLinks(register)' value="Submit">
+                        <span></span>
+                        <input type="reset" class="btn btn-default" ng-click='closeThisDialog()' value="Cancel">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="addShoeHeader"><span><u>Add Photos</u></span>
+            <div>
+                <h1 class="addShoeHeader2">Add links to online photos of this model. The first photo will be used on Your Profile page so make sure it's a good one!</h1>
+
+                <form class="form-group shoeForm" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Photo 1:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" ng-model='register.photos[0]' type="text" placeholder="Photo 1 - Choose this picture carefully!">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Photo 2:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" ng-model='register.photos[1]' type="text" placeholder="Photo 2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Photo 3:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" ng-model='register.photos[2]' type="text" placeholder="Photo 3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Photo 4:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" ng-model='register.photos[3]' type="text" placeholder="Photo 4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Photo 5:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" ng-model='register.photos[4]' type="text" placeholder="Photo 5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="labels"></label>
+                        <div class="col-md-8">
+                            <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoePhotos(register)' value="Submit">
+                            <span></span>
+                            <input type="reset" class="btn btn-default" ng-click='closeThisDialog()' value="Cancel">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>

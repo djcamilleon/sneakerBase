@@ -35,4 +35,9 @@ angular.module('sneakerBase', ['ui.router', 'ui.bootstrap'])
             controller: 'singleShoeCtrl'
         })
 
+        .state('about', {
+            url: '/about',
+            templateUrl: '/views/about.html'
+        })
+
     })

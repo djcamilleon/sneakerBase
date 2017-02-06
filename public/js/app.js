@@ -1,4 +1,4 @@
-angular.module('sneakerBase', ['ui.router', 'ui.bootstrap'])
+angular.module('sneakerBase', ['ui.router', 'ui.bootstrap', 'slickCarousel'])
     .config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/')

@@ -276,7 +276,10 @@ a:visited:active {
 }
 
 .singleImageBox {
-    display: flex;
+    /*display: flex;*/
+    /*height: 400px;*/
+    width: 600px;
+    overflow: none;
 }
 
 .singleShoeImage {
@@ -284,7 +287,6 @@ a:visited:active {
 }
 
 .shoeData {
-    /*width: 600px;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -308,8 +310,9 @@ a:visited:active {
 
 .shoeDetails {
     font-family: 'Amatic SC', cursive;
-    font-size: 24px;
-    padding-top: 25px;
+    font-size: 32px;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
 .anchor:active {
@@ -423,6 +426,50 @@ a:visited:active {
     color: gold;
     margin: auto;
     font-family: 'Amatic SC', cursive;
+}
+
+.techUsed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 18px;
+    color: gold;
+}
+
+.techHeader {
+    padding-bottom: 10px;
+}
+
+.techUsed li {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+
+.techUsed2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 18px;
+    color: gold;
+    padding-left: 230px;
+    padding-bottom: 40px;
+}
+
+.techUsed2 li {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+
+.scottGourley {
+    font-size: 28px;
+}
+
+.test {
+    position: absolute !important;
 }
 
 @media (max-width: 4096px) {

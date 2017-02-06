@@ -1,4 +1,4 @@
-<section>
+<section ng-init="init()">
     <div class="buttonsDiv">
         <button class='profileReturnButton'>
             <a href="/#!/profile">Back To Profile</a>
@@ -18,7 +18,11 @@
 
     <div class="picAndData">
         <div class="singleImageBox">
-            <img class="singleShoeImage" ng-src="{{shoe.photos[0]}}" />
+            <slick settings='slickConfig' init-onload=true ng-if='slickOn' slides-to-show=1 slides-to-scroll=1>
+                <!--<div ng-repeat='photo in shoeTest.photos' class="singleImageBox">-->
+                <img ng-repeat='photo in shoe.photos' class="singleShoeImage" ng-src="{{photo}}" />
+                <!--</div>-->
+            </slick>
         </div>
         <br>
         <div class="shoeData">

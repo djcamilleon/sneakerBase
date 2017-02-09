@@ -2,12 +2,81 @@
 
     <section class="searchMenu">
         <input class="searchBox" ng-model="search" placeholder="Search"></input>
-        <p></p>
+        <h1>Filter by Brand</h1>
+        <select id="Brand" ng-model="filter1">
+            <option>Adidas</option>
+            <option>Converse</option>
+            <option>Crocs</option>
+            <option>DC Shoes</option>
+            <option>Dr. Martens</option>
+            <option>Ewing</option>
+            <option>Fila</option>
+            <option>FitFlop</option>
+            <option>Jordan Brand</option>
+            <option>New Balance</option>
+            <option>Nike</option>
+            <option>Reebok</option>
+            <option>Saucony</option>
+            <option>Supra</option>
+            <option>Timberland</option>
+            <option>Vans</option>
+        </select>
+        <h1>Filter by Athlete</h1>
+        <select ng-model="filter2">
+            <option>Allen Iverson</option>
+            <option>Anfernee "Penny" Hardaway</option>
+            <option>Calvin "Megatron" Johnson</option>
+            <option>Carmelo Anthony</option>
+            <option>Chad Muska</option>
+            <option>Charles Barkley</option>
+            <option>Chris Paul</option>
+            <option>Chris Webber</option>
+            <option>Dennis Rodman</option>
+            <option>Derrick Rose</option>
+            <option>Dwayne Wade</option>
+            <option>Emmitt Smith</option>
+            <option>Gilbert Crockett</option>
+            <option>Hideo Nomo</option>
+            <option>John Wall</option>
+            <option>Ken Griffey Jr.</option>
+            <option>Kevin Durant</option>
+            <option>Kobe Bryant</option>
+            <option>LeBron James</option>
+            <option>Michael Jordan</option>
+            <option>Patrick Ewing</option>
+            <option>Rasheed Wallace</option>
+            <option>Rod Laver</option>
+            <option>Scottie Pippen</option>
+            <option>Shawn Kemp</option>
+            <option>Tim Hardaway</option>
+            <option>Tracy McGrady</option>
+        </select>
+        <h1>Filter by Primary Color</h1>
+        <select ng-model="filter3">
+            <option>Black</option>
+            <option>Black/White/Grey Camo</option>
+            <option>Blue</option>
+            <option>Brown</option>
+            <option>Brown Camo</option>
+            <option>Burgundy</option>
+            <option>Green</option>
+            <option>Green Camo</option>
+            <option>Grey</option>
+            <option>Multicolor Fade</option>
+            <option>Purple</option>
+            <option>Red</option>
+            <option>Reflective Silver</option>
+            <option>Silver</option>
+            <option>White</option>
+            <option>Yellow</option>
+        </select><br>
+        <button ng-click="reset()" onclick="location.reload()">Reset</button>
     </section>
 
 
     <section class="shoeDisplay">
-        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search" ng-click="singleShoeView(shoe)">
+        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: filter1 | filter: filter2 | filter: { primary_color:filter3 }"
+            ng-click="singleShoeView(shoe)">
             <div class="shoeBox">
                 <div class="imageBox">
                     <img class="shoeImage" src="{{shoe.photos[0]}}" />
@@ -17,6 +86,6 @@
                     <br> {{shoe.nickname}}
                 </div>
             </div>
-        </div>
+            </div>
     </section>
 </section>

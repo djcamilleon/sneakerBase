@@ -15,4 +15,10 @@ angular.module('sneakerBase').controller('userPageCtrl', function($scope, mainSv
         mainSvc.shoe = oneShoeObject
         $state.go('singleShoe')
     }
+
+    $scope.reset = function() {
+        $scope.filter1= "";
+        $scope.filter2= "";
+        $scope.filter3= "";
+    }
 })

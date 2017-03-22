@@ -1,9 +1,9 @@
 <section class="profile">
 
     <section class="searchMenu">
-        <input class="searchBox" ng-model="search" placeholder="Search"></input>
-        <h1>Filter by Brand</h1>
-        <select id="Brand" ng-model="filter1">
+        <input class="searchBox" ng-model="search" placeholder="Search By Keyword"></input>
+        <h1 class="filterNameHeader">Filter by Brand:</h1>
+        <select class="dropdown" id="Brand" ng-model="filter1">
             <option>Adidas</option>
             <option>Converse</option>
             <option>Crocs</option>
@@ -21,8 +21,8 @@
             <option>Timberland</option>
             <option>Vans</option>
         </select>
-        <h1>Filter by Athlete</h1>
-        <select ng-model="filter2">
+        <h1 class="filterNameHeader">Filter by Athlete:</h1>
+        <select class="dropdown" id="Athlete" ng-model="filter2">
             <option>Allen Iverson</option>
             <option>Anfernee "Penny" Hardaway</option>
             <option>Calvin "Megatron" Johnson</option>
@@ -51,8 +51,8 @@
             <option>Tim Hardaway</option>
             <option>Tracy McGrady</option>
         </select>
-        <h1>Filter by Primary Color</h1>
-        <select ng-model="filter3">
+        <h1 class="filterNameHeader">Filter by Primary Color:</h1>
+        <select class="dropdown" id="primary_color" ng-model="filter3">
             <option>Black</option>
             <option>Black/White/Grey Camo</option>
             <option>Blue</option>
@@ -70,11 +70,15 @@
             <option>White</option>
             <option>Yellow</option>
         </select><br>
-        <button ng-click="reset()" onclick="location.reload()">Reset</button>
+        <button class="resetButton" ng-click="reset()" onclick="location.reload()">Reset</button>
     </section>
 
 
     <section class="shoeDisplay">
+        <div ng-if=''>
+
+        </div>
+        <!--create a div, ng-if !loggedin "please log in to see shoes-->
         <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: filter1 | filter: filter2 | filter: { primary_color:filter3 }"
             ng-click="singleShoeView(shoe)">
             <div class="shoeBox">
@@ -86,6 +90,6 @@
                     <br> {{shoe.nickname}}
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 </section>

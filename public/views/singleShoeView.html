@@ -31,10 +31,18 @@
                 <br> {{shoe.nickname}}
             </div>
             <div class="shoeInfo">
-                Associated Athlete: {{shoe.associated_athlete}}<br> Colorway: {{shoe.colorway}}<br> Primary Color of Upper: {{shoe.primary_color}}<br> Type: {{shoe.type}}<br> Release Date: {{shoe.release_date}}<br> Price at Time of Release: {{shoe.price}}<br>                Forefoot Cushioning: {{shoe.forefoot_cushioning_technology}}
-                <br> Heel Cushioning: {{shoe.heel_cushioning_technology}}<br> First Feature: {{shoe.features[0]}}<br> Second Feature: {{shoe.features[1]}}
-                <br> Link For More Info: <a class="anchor" ng-href="{{shoe.links[0]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br> Link For More Info:
-                <a class="anchor" ng-href="{{shoe.links[1]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br> Link For More Info: <a class="anchor" ng-href="{{shoe.links[2]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br>
+                <span ng-if="shoe.associated_athlete != null">Associated Athlete: {{shoe.associated_athlete}}<br></span>
+                Colorway: {{shoe.colorway}}<br>
+                Primary Color of Upper: {{shoe.primary_color}}<br> 
+                Type: {{shoe.type}}<br> 
+                <span ng-if="shoe.release_date != null">Release Date: {{shoe.release_date}}<br></span> 
+                Price at Time of Release: {{shoe.price}}<br> <span ng-if="shoe.forefoot_cushioning_technology != null">Forefoot Cushioning: {{shoe.forefoot_cushioning_technology}}<br></span>
+                <span ng-if="shoe.heel_cushioning_technology != null">Heel Cushioning: {{shoe.heel_cushioning_technology}}<br></span>
+                <span ng-if="shoe.features[0] != null">First Feature: {{shoe.features[0]}}<br></span> <span ng-if="shoe.features[0] != null">Second Feature: {{shoe.features[1]}}<br></span> 
+                <span>Link For More Info: <a class="anchor" ng-href="{{shoe.links[0]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
+                <span ng-if="shoe.links[1] != null">Link For More Info:
+                <a class="anchor" ng-href="{{shoe.links[1]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
+                <span ng-if="shoe.links[2] != null">Link For More Info: <a class="anchor" ng-href="{{shoe.links[2]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
             </div>
             <div class="shoeDetails">
                 {{shoe.details}}

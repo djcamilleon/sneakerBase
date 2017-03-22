@@ -62,17 +62,19 @@ app.use(passport.session());
 
 app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/calendar'] }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
-    res.redirect('/#/profile');
+    res.redirect('/#!/profile');
     console.log(req.session)
 });
 app.get('/logout', function(req, res) {
-    console.log('hello')
+    console.log('hello', res)
     req.session.destroy(function(err, data) {
-        console.log('hello2')
+        console.log(data)
 
         res.redirect('/')
     });
 });
+
+var serverCtrl = require('./serverCtrl.js')
 
 app.post('/api/shoes/:add_shoe', function(req, res) {
     // console.log(req.body);
@@ -155,62 +157,9 @@ app.post('/api/shoes/:add_shoe', function(req, res) {
 //     })
 // })
 
-//This code below was graciuosly written and provided Scott Gourley!!
+//This code below was graciuosly written and provided by Scott Gourley!!
 
-app.get('/api/everything', function(req, res) {
-    db.get_shoes([], function(err, shoes) {
-        if (err) {
-            console.log(err)
-            res.status(500).json(err);
-        } else {
-            console.log('SHOES', shoes)
-            db.get_features([], function(err, features) {
-                if (err) {
-                    res.status(500).json(err)
-                } else {
-                    db.get_links([], function(err, links) {
-                        if (err) {
-                            res.status(500).json(err)
-                        } else {
-                            db.get_photos([], function(err, photos) {
-                                if (err) {
-                                    res.status(500).json(err)
-                                } else {
-                                    var obj = {
-                                        shoes: shoes,
-                                        features: features,
-                                        links: links,
-                                        photos: photos
-                                    }
-                                    var arr = obj.features.concat(obj.links, obj.photos)
-                                    obj.shoes.forEach(function(val) {
-                                        val.features = []
-                                        val.links = []
-                                        val.photos = []
-                                        for (var i = 0; i < arr.length; i++) {
-                                            var v = arr[i]
-                                            if (v.feature && v.shoe_id === val.id) {
-                                                val.features.push(v.feature)
-                                            } else if (v.url_1 && v.shoe_id === val.id) {
-                                                val.links.push(v.url_1)
-                                            } else if (v.photo_url && v.shoe_id === val.id) {
-                                                val.photos.push(v.photo_url)
-                                            }
-                                        }
-
-                                    })
-                                    res.status(200).json(obj.shoes)
-                                }
-                            })
-                        }
-                    })
-                }
-            })
-        }
-    })
-
-
-})
+app.get('/api/everything', serverCtrl.getShoes)
 
 // app.put('/fill', function(req, res){
 //     db.update_feature([2, req.body.features], function(err, s){

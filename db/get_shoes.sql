@@ -1,3 +1,3 @@
 select * from shoes
 
-where user_id = 2;
+where user_id = $1;

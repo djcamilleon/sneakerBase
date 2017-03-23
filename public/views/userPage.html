@@ -79,7 +79,7 @@
 
         </div>
         <!--create a div, ng-if !loggedin "please log in to see shoes-->
-        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: filter1 | filter: filter2 | filter: { primary_color:filter3 }"
+        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 }"
             ng-click="singleShoeView(shoe)">
             <div class="shoeBox">
                 <div class="imageBox">

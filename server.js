@@ -6,15 +6,24 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var session = require('express-session');
 var config = require('./config.js');
 var massive = require('massive');
-var connectionString = 'postgres://postgres:zo384602@localhost/sneakers'
 var app = module.exports = express();
-var db = massive.connectSync({ connectionString: connectionString });
 
+// // My original database code
+var connectionString = 'postgres://postgres:zo384602@localhost/sneakers'
+// // Help from Sterling
+// // var connectionString = 'postgres://ngkdgnay:krpbi8NVO6iazKpIZpDPkBDSFmZZCcc_@stampy.db.elephantsql.com:5432/ngkdgnay'
+var db = massive.connectSync({ connectionString: connectionString });
 app.set('db', db);
 
 app.use(bodyParser.json())
 
 app.use(express.static(__dirname + '/public'))
+
+// var db = massive.connectSync({
+//     connectionString : 
+//     "postgres://ngkdgnay:krpbi8NVO6iazKpIZpDPkBDSFmZZCcc_@stampy.db.elephantsql.com:5432/ngkdgnay"});
+
+// app.set('db', db);
 
 app.use(session({
     secret: config.secret,

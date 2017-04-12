@@ -5,6 +5,7 @@ var db = app.get('db')
 module.exports = {
   getShoes: function (req, res) {
     db.get_shoes([req.user.id], function (err, shoes) {
+      console.log(req.user.id);
       if (err) {
         console.log(err)
         res.status(500).json(err);

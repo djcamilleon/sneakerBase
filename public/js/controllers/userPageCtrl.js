@@ -1,37 +1,55 @@
-angular.module('sneakerBase').controller('userPageCtrl', function($scope, mainSvc, $state){
+angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainSvc, $state) {
     $scope.loggedIn = false;
-    mainSvc.getUser().then(function(result){
+    mainSvc.getUser().then(function (result) {
         $scope.userId = result[0].id;
-        if($scope.userId) {
+        if ($scope.userId) {
             $scope.loggedIn = true;
+            $scope.resetPage;
         }
     });
 
-    var getAllData = function(){
+    var getAllData = function () {
         if ($scope.loggedIn) {
             //pass into function $scope.userid => service => server => getshoes.db
-        mainSvc.getAllData().then(function(response){      
-            $scope.shoes = response.data
-            console.log($scope.shoes);
-        })
+            mainSvc.getAllData().then(function (response) {
+                $scope.shoes = response.data
+                var shoes = response.data
+                console.log('from getAllData', $scope.shoes);
+            
+                var sum = 0;
+                for (var i = 0; i < shoes.length; i++) {
+                var priceAsNumbers = shoes[i].price.replace("$","").replace(".00", "")
+                // console.log(priceAsNumbers);
+                sum += Number(priceAsNumbers);
+        }
+        $scope.value = sum.toLocaleString();
+            })
         } else {
-            console.log('not logged in')
+            // console.log('not logged in')
+            console.log('There is no user data')
         }
     }
-    setTimeout(function() {
+    setTimeout(function () {
         getAllData();
     }, 50);
+
+
+
     
- $scope.singleShoeView = function (oneShoeObject) {
-   
+
+
+    $scope.singleShoeView = function (oneShoeObject) {
+
         mainSvc.shoe = oneShoeObject
         $state.go('singleShoe')
     }
 
-    $scope.reset = function() {
-        $scope.filter1= "";
-        $scope.filter2= "";
-        $scope.filter3= "";
+    $scope.resetPage = function () {
+        $scope.filter1 = "";
+        $scope.filter2 = "";
+        $scope.filter3 = "";
+        $scope.filter4 = "";
+        $scope.filter5 = "";
     }
 })
 

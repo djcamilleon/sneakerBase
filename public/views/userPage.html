@@ -1,5 +1,4 @@
-<section class="profile">
-
+<section id="page-top" class="profile">
     <section class="searchMenu">
         <input class="searchBox" ng-model="search" placeholder="Search By Keyword"></input>
         <h1 class="filterNameHeader">Filter by Brand:</h1>
@@ -37,6 +36,7 @@
             <option>Emmitt Smith</option>
             <option>Gilbert Crockett</option>
             <option>Hideo Nomo</option>
+            <option>Jason Kidd</option>
             <option>John Wall</option>
             <option>Ken Griffey Jr.</option>
             <option>Kevin Durant</option>
@@ -54,32 +54,64 @@
         <h1 class="filterNameHeader">Filter by Primary Color:</h1>
         <select class="dropdown" id="primary_color" ng-model="filter3">
             <option>Black</option>
-            <option>Black/White/Grey Camo</option>
+            <option>Camo-Black/White/Grey</option>
+            <option>Camo-Green</option>
+            <option>Camo-White</option>
             <option>Blue</option>
             <option>Brown</option>
-            <option>Brown Camo</option>
             <option>Burgundy</option>
+            <option>Cheetah Print</option>
             <option>Green</option>
-            <option>Green Camo</option>
             <option>Grey</option>
             <option>Multicolor Fade</option>
+            <option>Orange</option>
             <option>Purple</option>
             <option>Red</option>
             <option>Reflective Silver</option>
             <option>Silver</option>
+            <option>Volt</option>
             <option>White</option>
             <option>Yellow</option>
+        </select>
+        <h1 class="filterNameHeader">Filter by Shoe Type:</h1>
+        <select class="dropdown" id="primary_color" ng-model="filter4">
+            <option>Baseball Cross Trainer</option>
+            <option>Basketball</option>
+            <option>Basketball Cross Trainer</option>
+            <option>Basketball Lifestyle</option>
+            <option>Boot</option>
+            <option>Cross Trainer</option>
+            <option>Football Cross Trainer</option>
+            <option>Running</option>
+            <option>Skateboarding</option>
+            <option>Sneaker Boot</option>
+            <option>Tennis</option>
+            <option>Trail Running</option>
+        </select>
+        <h1 class="filterNameHeader">Filter by Feature:</h1>
+        <select class="dropdown" id="primary_color" ng-model="filter5">
+            <option>Carbon Fiber</option>
+            <option>Foamposite</option>
+            <option>Huarache-style Fit</option>
+            <option>Lace Lock</option>
+            <option>Laser-Etching</option>
+            <option>Patent Leather</option>
+            <option>Reflective</option>
+            <option>Strap</option>
+            <option>Waterproof</option>
         </select><br>
-        <button class="resetButton" ng-click="reset()" onclick="location.reload()">Reset</button>
+        <button class="resetButton" ng-click="resetPage()" onclick="location.reload()">Reset</button>
     </section>
 
 
-    <section class="shoeDisplay">
-        <div ng-if=''>
 
+    <section class="shoeDisplay">
+        <div class="totalValueWrapper">
+            <h1 ng-if="shoes" class="totalValue">The total value of this Sneaker Collection is ${{value}}.</h1>
         </div>
+        <div ng-if=''></div>
         <!--create a div, ng-if !loggedin "please log in to see shoes-->
-        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 }"
+        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } "
             ng-click="singleShoeView(shoe)">
             <div class="shoeBox">
                 <div class="imageBox">
@@ -91,5 +123,14 @@
                 </div>
             </div>
         </div>
+
+        <!--<div class="backToTop">
+                <div class="topOfPageChevron">
+                    <a href="#page-top" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-up animated"></i>
+                    </a>
+                </div>
+                <div class="back-to-top topOfPageText"><a style="color:red;" href="#page-top">Back To Top</a></div>
+            </div>-->
     </section>
 </section>

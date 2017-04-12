@@ -220,6 +220,21 @@ a:visited:active {
     margin-top: 5px;
 }
 
+.totalValueWrapper {
+    display: flex;
+    width: 84vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.totalValue {
+    display: flex;
+    color: gold;
+    font-size: 36px;
+}
+
 .shoeDisplay {
     width: 84vw;
     position: relative;
@@ -280,6 +295,15 @@ a:visited:active {
     bottom: 30px;
     text-align: center;
     width: 100%;
+}
+
+.backToTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    width: 84vw;
+    height: 10vh;
 }
 
 .imageBox {
@@ -438,19 +462,21 @@ a:visited:active {
     display: flex;
 }
 
-.linkedIn:hover {
+.contactLinks:hover {
     background: gold;
-    color: darkred;
+    color: black;
+    font-size: 36px;
 }
 
 .contactInfo {
     width: 600px;
     height: 480px;
+    line-height: 140%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    font-size: 36px;
+    font-size: 26px;
     color: gold;
     margin: auto;
     font-family: 'Amatic SC', cursive;
@@ -460,9 +486,9 @@ a:visited:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 60px;
     font-family: 'Amatic SC', cursive;
-    font-size: 18px;
+    font-size: 22px;
     color: gold;
 }
 
@@ -479,12 +505,14 @@ a:visited:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
+    justify-content: center;
+    padding-top: 30px;
     font-family: 'Amatic SC', cursive;
-    font-size: 18px;
+    font-size: 22px;
     color: gold;
-    padding-left: 230px;
+    /*padding-left: 230px;*/
     padding-bottom: 40px;
+    line-height: 125%;
 }
 
 .techUsed2 li {

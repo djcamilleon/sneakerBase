@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SneakerBase</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.css' rel="stylesheet">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.css' rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
@@ -24,8 +26,10 @@
             <h1 class='title'>SneakerBase</h1>
             <nav class='main-nav'>
                 <ul class="links">
-                    <li class="ul-list" bng-hide="loggedIn"><a ui-sref='login'>LOGIN</a></li>
-                    <!--<li ng-show="loggedIn"><a ui-sref='logout'>LOGOUT</a></li>-->
+                    <li class="ul-list" ng-if="userId != true"><a ui-sref='login'>LOGIN</a></li>
+                    <!--<li class="ul-list" ng-if="userId = true">
+                        <a ui-sref='login'>LOGOUT</a>
+                    </li>-->
                     <li class="ul-list"><a ui-sref='home'>HOME</a></li>
                     <li class="ul-list"><a ui-sref='userPage'>PROFILE</a></li>
                     <li class="ul-list"><a ui-sref='newShoe'>NEW SHOE</a></li>

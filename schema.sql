@@ -14,7 +14,7 @@ CREATE TABLE shoes (
   forefoot_cushioning_technology TEXT,
   heel_cushioning_technology TEXT,
   type VARCHAR(255),
-  user_id VARCHAR(255)
+  user_id INTEGER
 );
 
 -- insert into shoes (brand, model, nickname, colorway, primary_color, style_code, size, details, release_date, price, associated_athlete, forefoot_cushioning_technology, heel_cushioning_technology, type, user_id) 
@@ -33,7 +33,7 @@ CREATE TABLE users (
 
 CREATE TABLE features (
   id SERIAL PRIMARY KEY,
-  shoe_id VARCHAR(255),
+  shoe_id INTEGER,
   feature TEXT
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE features (
 CREATE TABLE links (
   id SERIAL PRIMARY KEY,
   url_1 TEXT,
-  shoe_id VARCHAR(255)
+  shoe_id INTEGER
 );
 
 -- insert into links (shoe_id, url_1)
@@ -52,7 +52,7 @@ CREATE TABLE links (
 CREATE TABLE photos (
   id SERIAL PRIMARY KEY,
   photo_url TEXT,
-  shoe_id VARCHAR(255)
+  shoe_id INTEGER
 );
 
 -- insert into photos (photo_url, shoe_id)

@@ -20,16 +20,16 @@
 <body>
 
 
-    <header>
+    <header ng-controller='userPageCtrl'>
         <div class='main-header'>
             <img src='./images/small-cropped-home-page-kristian-olsen.png' class='headerImage' />
             <h1 class='title'>SneakerBase</h1>
             <nav class='main-nav'>
                 <ul class="links">
-                    <li class="ul-list" ng-if="userId != true"><a ui-sref='login'>LOGIN</a></li>
-                    <!--<li class="ul-list" ng-if="userId = true">
+                    <li class="ul-list" ng-if="!loggedIn"><a ui-sref='login'>LOGIN</a></li>
+                    <li class="ul-list" ng-if="loggedIn">
                         <a ui-sref='login'>LOGOUT</a>
-                    </li>-->
+                    </li>
                     <li class="ul-list"><a ui-sref='home'>HOME</a></li>
                     <li class="ul-list"><a ui-sref='userPage'>PROFILE</a></li>
                     <li class="ul-list"><a ui-sref='newShoe'>NEW SHOE</a></li>
@@ -61,11 +61,11 @@
     <script src="dist/sweetalert.min.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/services/mainSvc.js"></script>
-    <script src="./js/controllers/homeCtrl.js"></script>
+    <!--<script src="./js/controllers/homeCtrl.js"></script>-->
     <script src="./js/controllers/loginCtrl.js"></script>
     <script src="./js/controllers/userPageCtrl.js"></script>
     <script src="./js/controllers/singleShoeCtrl.js"></script>
-
+    <script src="./js/controllers/newShoeCtrl.js"></script>
 </body>
 
 </html>

@@ -32,7 +32,7 @@ angular.module('sneakerBase', ['ui.router', 'ui.bootstrap', 'slickCarousel'])
         .state('newShoe', {
             url: '/newShoe',
             templateUrl: '/views/newShoe.html',
-            controller: 'singleShoeCtrl'
+            controller: 'newShoeCtrl'
         })
 
         .state('about', {

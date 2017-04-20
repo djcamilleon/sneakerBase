@@ -4,25 +4,30 @@ var db = app.get('db')
 
 module.exports = {
   getShoes: function (req, res) {
+    console.log('getting shoes');
     db.get_shoes([req.user.id], function (err, shoes) {
-      console.log(req.user.id);
+      console.log('The req.user.id is ', req.user.id);
+      console.log('The req.user.name is ', req.user.first_name);
       if (err) {
-        console.log(err)
+        console.log('err', err)
         res.status(500).json(err);
       } else {
-        console.log('SHOES', shoes)
+        // console.log('SHOES', shoes)
         db.get_features([], function (err, features) {
           if (err) {
             res.status(500).json(err)
           } else {
+            // console.log('getting features', features);
             db.get_links([], function (err, links) {
               if (err) {
                 res.status(500).json(err)
               } else {
+                // console.log('getting links', links);
                 db.get_photos([], function (err, photos) {
                   if (err) {
                     res.status(500).json(err)
                   } else {
+                    // console.log('photos from getAllData', photos)
                     var obj = {
                       shoes: shoes,
                       features: features,

@@ -1,41 +1,67 @@
 angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainSvc, $state) {
     $scope.loggedIn = false;
     mainSvc.getUser().then(function (result) {
+        console.log('result from MainSvc', result)
         $scope.userId = result[0].id;
         if ($scope.userId) {
             $scope.loggedIn = true;
+            console.log('loggedIn from MainSvc', $scope.loggedIn)
+
             $scope.resetPage;
         }
     });
 
     var getAllData = function () {
+        console.log('loggedIn from homeCtrl', $scope.loggedIn)
         if ($scope.loggedIn) {
             //pass into function $scope.userid => service => server => getshoes.db
             mainSvc.getAllData().then(function (response) {
                 $scope.shoes = response.data
                 var shoes = response.data
                 console.log('from getAllData', $scope.shoes);
-            
+
                 var sum = 0;
                 for (var i = 0; i < shoes.length; i++) {
-                var priceAsNumbers = shoes[i].price.replace("$","").replace(".00", "")
-                // console.log(priceAsNumbers);
-                sum += Number(priceAsNumbers);
-        }
-        $scope.value = sum.toLocaleString();
+                    var priceAsNumbers = shoes[i].price.replace("$", "").replace(".00", "")
+                    // console.log(priceAsNumbers);
+                    sum += Number(priceAsNumbers);
+                }
+                $scope.value = sum.toLocaleString();
             })
         } else {
             // console.log('not logged in')
-            console.log('There is no user data')
+            // console.log('There is no user data')
         }
     }
     setTimeout(function () {
+        console.log('running getAllData')
         getAllData();
-    }, 50);
+    }, 500);
+       $scope.resetPage = function () {
+        console.log('reset')
+        $scope.filter1 = "";
+        $scope.filter2 = "";
+        $scope.filter3 = "";
+        $scope.filter4 = "";
+        $scope.filter5 = "";
+    }
+    // var checkLoggedIn = $interval(function () {
+    //     if ($scope.loggedIn === true) {
+    //         console.log('running getAllData');
+    //         $interval.cancel(checkLoggedIn)
+    //         getAllData();
+    //         $scope.resetPage();
+    //     }
+    //     else {
+    //         console.log('Not yet!');
+    //     }
+    // }, 50);
+
+    // checkLoggedIn();
 
 
 
-    
+
 
 
     $scope.singleShoeView = function (oneShoeObject) {
@@ -44,13 +70,7 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
         $state.go('singleShoe')
     }
 
-    $scope.resetPage = function () {
-        $scope.filter1 = "";
-        $scope.filter2 = "";
-        $scope.filter3 = "";
-        $scope.filter4 = "";
-        $scope.filter5 = "";
-    }
+ 
 })
 
 // controller: function($state, $rootScope){

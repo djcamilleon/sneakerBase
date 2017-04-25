@@ -1,7 +1,9 @@
 <div class="addShoePageColorV2">
     <!--<div><span class="spanAlignment"><u>Add New Shoe</u></span>
         <div>-->
-    <h1 class="addShoeHeader"><u>Add New Shoe</u></h1>
+    <h1 class="addShoeHeader">
+        <u>Add New Shoe</u>
+    </h1>
     <h2 class="addShoeHeader2">Get Started Below</h2>
 
     <form class="form-group shoeForm" role="form">
@@ -92,49 +94,57 @@
 
         <div class="form-group">
             <label class="labels"></label>
-            <div class="col-md-8">
-                <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoe(register)' value="Submit">
-                <span></span>
-                <input type="reset" class="btn btn-default">
+            <div class="col-md-8" class="submitNewShow">
+                <div><input type="reset" class="btn btn-default" ng-click='closeThisDialog()' value="Cancel"></div>
+                <div class="submitNewShoeButtonWrapper"><input type="button" class="submitNewShoeButton" ng-click='registerNewShoe(register)' value="Submit New Shoe"></div>
             </div>
         </div>
     </form>
 </div>
 </div>
-{{test}}
-<h1 class="addShoeHeader"><u>Add Features</u></h1>
+
+<h1 class="addShoeHeader">
+    <u>Add Features</u>
+</h1>
 <h2 class="addShoeHeader2">Add features for your shoe here. Features are unique aspects or design touches about this particular model or colorway.</h2>
 
 <form class="form-group shoeForm" role="form">
     <div class="form-group">
         <label class="col-lg-3 control-label">Feature 1:</label>
         <div class="col-lg-6">
-            <input class="form-control" ng-model='register.feature[0]' type="text" placeholder="Feature 1 - if applicable">
+            <input class="form-control" ng-model='details.feature[0]' type="text" placeholder="Feature 1 - if applicable">
         </div>
     </div>
     <div class="form-group">
         <label class="col-lg-3 control-label">Feature 2:</label>
         <div class="col-lg-6">
-            <input class="form-control" ng-model='register.feature[1]' type="text" placeholder="Feature 2 - if applicable">
+            <input class="form-control" ng-model='details.feature[1]' type="text" placeholder="Feature 2 - if applicable">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Feature 1:</label>
+        <div class="col-lg-6">
+            <input class="form-control" ng-model='details.feature[2]' type="text" placeholder="Feature 3 - if applicable">
         </div>
     </div>
 
     <div class="form-group">
         <label class="labels"></label>
         <div class="col-md-8">
-            <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoeFeatures(register)' value="Submit">
             <span></span>
             <input type="reset" class="btn btn-default">
         </div>
     </div>
-</form>
-</div>
+    </div>
 
 
-<h1 class="addShoeHeader"><u>Add Links</u></h1>
-<h2 class="addShoeHeader2">Add links to webpages to get more information about this shoe. Make sure the first one provides the most information about this model!</h2>
+    <!--<h1 class="addShoeHeader">
+        <u>Add Links</u>
+    </h1>
+    <h2 class="addShoeHeader2">Add links to webpages to get more information about this shoe. Make sure the first one provides the most information
+        about this model!</h2>
 
-<form class="form-group shoeForm" role="form">
+
     <div class="form-group">
         <label class="col-lg-3 control-label">Link 1:</label>
         <div class="col-lg-8">
@@ -157,19 +167,20 @@
     <div class="form-group">
         <label class="labels"></label>
         <div class="col-md-8">
-            <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoeLinks(register)' value="Submit">
             <span></span>
-            <input type="reset" class="btn btn-default" ng-click='closeThisDialog()' value="Cancel">
+            <input type="reset" class="btn btn-default" ng-click='closeThisDialog()' value="Reset">
         </div>
     </div>
-</form>
-</div>
+    </div>
 
 
-<h1 class="addShoeHeader"><u>Add Photos</u></h1>
-<h2 class="addShoeHeader2">Add links to online photos of this model. The first photo will be used on Your Profile page so make sure it's a good one!</h2>
+    <h1 class="addShoeHeader">
+        <u>Add Photos</u>
+    </h1>
+    <h2 class="addShoeHeader2">Add links to online photos of this model. The first photo will be used on Your Profile page so make sure it's a good
+        one!
+    </h2>
 
-<form class="form-group shoeForm" role="form">
     <div class="form-group">
         <label class="col-lg-3 control-label">Photo 1:</label>
         <div class="col-lg-8">
@@ -199,14 +210,13 @@
         <div class="col-lg-8">
             <input class="form-control" ng-model='register.photos[4]' type="text" placeholder="Photo 5">
         </div>
-    </div>
+    </div>-->
 
     <div class="form-group">
         <label class="labels"></label>
-        <div class="col-md-8">
-            <input type="button" class="btn btn-primary" ng-style='{"background":"#FF7E82"}' ng-click='registerNewShoePhotos(register)' value="Submit">
-            <span></span>
-            <input type="reset" class="btn btn-default" ng-click='closeThisDialog()' value="Cancel">
+        <div class="col-md-8" class="submitDetails">
+            <div><input type="reset" class="btn btn-default" ng-click='closeThisDialog()' value="Cancel"></div>
+            <div class="submitDetailsButtonWrapper"><input type="button" class="submitDetailsButton" ng-click='registerNewShoeDetails(details)' value="Submit All Details"></div>
         </div>
     </div>
 </form>

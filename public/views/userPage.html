@@ -107,7 +107,8 @@
 
     <section class="shoeDisplay">
         <div class="totalValueWrapper">
-            <h1 ng-if="shoes" class="totalValue">The total value of this Sneaker Collection is ${{value}}.</h1>
+            <div><h1 ng-if="user" class="welcome">Welcome back, {{user[0].first_name}}!</h1></div>
+            <div><h2 ng-if="shoes" class="totalValue">The total value of your Sneaker Collection is ${{value}}.</h2></div>
         </div>
         <div ng-if=''></div>
         <!--create a div, ng-if !loggedin "please log in to see shoes-->

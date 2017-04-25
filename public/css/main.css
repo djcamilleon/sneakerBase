@@ -222,17 +222,25 @@ a:visited:active {
 
 .totalValueWrapper {
     display: flex;
+    flex-direction: column;
     width: 84vw;
-    height: 10vh;
+    height: 15vh;
     justify-content: center;
     align-items: center;
     padding-top: 20px;
+}
+.welcome {
+    display: flex;
+    color: gold;
+    font-size: 36px;
 }
 
 .totalValue {
     display: flex;
     color: gold;
     font-size: 36px;
+    padding-top: 10px;
+    flex-wrap: wrap;
 }
 
 .shoeDisplay {
@@ -526,6 +534,58 @@ a:visited:active {
 
 .test {
     position: absolute !important;
+}
+
+.submitNewShoe{
+    display: flex;
+    flex-direction: column;
+}
+
+.submitNewShoeButtonWrapper{
+    padding-top: 5px;
+     justify-content: center;
+    align-items: center;
+}
+.submitNewShoeButton {
+    background:gold;
+    color: darkred;
+    text-decoration: none;
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+    width: 220px;
+    height: 50px;
+    border: 0;
+    border-radius: 4px;
+}
+.submitNewShoeButton:hover {
+    background: black;
+    color: gold;
+}
+
+.submitDetails{
+    display: flex;
+    flex-direction: column;
+}
+
+.submitDetailsButtonWrapper{
+    padding-top: 5px;
+     justify-content: center;
+    align-items: center;
+}
+.submitDetailsButton {
+    background:gold;
+    color: darkred;
+    text-decoration: none;
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+    width: 220px;
+    height: 50px;
+    border: 0;
+    border-radius: 4px;
+}
+.submitDetailsButton:hover {
+    background: black;
+    color: gold;
 }
 
 @media (max-width: 4096px) {

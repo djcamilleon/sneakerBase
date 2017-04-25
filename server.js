@@ -79,13 +79,21 @@ app.get('/logout', function(req, res) {
 
 var serverCtrl = require('./serverCtrl.js')
 
-app.post('/api/newshoe', function (req, res){
+app.post('/api/newShoe', function (req, res){
     console.log(req.body)
     db.create_shoe([req.body.brand, req.body.model, req.body.nickname, req.body.colorway, req.body.primary_color, req.body.style_code, req.body.size, req.body.details, req.body.release_date, req.body.price, req.body.associated_athlete, req.body.forefoot_cushioning_technology, req.body.heel_cushioning_technology, req.body.type, req.body.user_id], function(err, shoe_id){
         console.log('This is from server.js', shoe_id)
         res.status(200).send(shoe_id);
     })
 })
+
+app.post('/api/newShoe/details', function(req, res, next){
+    db.create_details([req.body.shoe_id, req.body.feature], function(err, result){
+        if(err){ return next(err) }
+        console.log("result: ", result[0]);
+        res.status(200).json('Successfully added Features!');
+    })
+});
 
 // app.post('/api/shoes/:add_shoe', function(req, res) {
 //     // console.log(req.body);
@@ -167,8 +175,6 @@ app.post('/api/newshoe', function (req, res){
 //         }
 //     })
 // })
-
-//This code below was graciuosly written and provided by Scott Gourley!!
 
 app.get('/api/everything', serverCtrl.getShoes)
 

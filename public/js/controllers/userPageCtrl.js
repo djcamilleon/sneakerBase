@@ -1,24 +1,24 @@
 angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainSvc, $state) {
     $scope.loggedIn = false;
     mainSvc.getUser().then(function (result) {
-        console.log('result from MainSvc', result)
+        $scope.user = result;
+        console.log('result from MainSvc.getUser', $scope.user)
         $scope.userId = result[0].id;
         if ($scope.userId) {
             $scope.loggedIn = true;
-            console.log('loggedIn from MainSvc', $scope.loggedIn)
-
+            // console.log('loggedIn from MainSvc', $scope.loggedIn)
             $scope.resetPage;
         }
     });
 
     var getAllData = function () {
-        console.log('loggedIn from homeCtrl', $scope.loggedIn)
+        // console.log('loggedIn from homeCtrl', $scope.loggedIn)
         if ($scope.loggedIn) {
             //pass into function $scope.userid => service => server => getshoes.db
             mainSvc.getAllData().then(function (response) {
                 $scope.shoes = response.data
                 var shoes = response.data
-                console.log('from getAllData', $scope.shoes);
+                // console.log('from getAllData', $scope.shoes);
 
                 var sum = 0;
                 for (var i = 0; i < shoes.length; i++) {
@@ -34,11 +34,11 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
         }
     }
     setTimeout(function () {
-        console.log('running getAllData')
+        // console.log('running getAllData')
         getAllData();
-    }, 500);
+    }, 1000);
        $scope.resetPage = function () {
-        console.log('reset')
+        // console.log('reset')
         $scope.filter1 = "";
         $scope.filter2 = "";
         $scope.filter3 = "";

@@ -1,6 +1,6 @@
 insert into features (shoe_id, feature)
-values ($1, $2);
-returning id, feature;
+values ($1, $2)
+returning *;
 
 
 -- insert into links (url_1, shoe_id)

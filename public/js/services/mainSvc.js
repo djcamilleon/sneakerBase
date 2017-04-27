@@ -27,26 +27,11 @@ var user;
 
     this.registerNewShoe = function(registerObj){
         console.log(user)
+        registerObj.user_id = user[0].id;
         return $http({
             method: "POST",
             url: "/api/newShoe",
-            data: {
-                brand: registerObj.brand, 
-                model: registerObj.model, 
-                nickname: registerObj.nickname, 
-                colorway: registerObj.colorway, 
-                primary_color: registerObj.primary_color, 
-                style_code: registerObj.style_code, 
-                size: registerObj.size, 
-                details: registerObj.details, 
-                release_date: registerObj.release_date, 
-                price: registerObj.price, 
-                associated_athlete: registerObj.associated_athlete, 
-                forefoot_cushioning_technology: registerObj.forefoot_cushioning_technology,
-                heel_cushioning_technology: registerObj.heel_cushioning_technology, 
-                type: registerObj.type,
-                user_id:  user[0].id
-           }
+            data: registerObj
         })
         .then (function(shoe_id){
             // console.log('This is the new ',shoe_id);
@@ -57,18 +42,30 @@ var user;
     }
 
     this.registerNewShoeDetails = function(detailsObj, shoe_id){
-        // console.log('This is the detailsObj from mainSvc.', detailsObj);
-        // console.log('This is the shoe_id from mainSvc.', shoe_id)
         return $http({
             method: "POST",
             url: "/api/newShoe/details",
             data: {
                 shoe_id: shoe_id,
-                feature: detailsObj.feature[0] + ' ' + detailsObj.feature[1] + ' ' + detailsObj.feature[2]
+                feature: detailsObj
             } 
         })
         .then (function(detailsObj){
             return detailsObj;
+        })
+    }
+
+    this.deleteShoe = function(shoe_id) {
+        console.log('This is the shoe id from the MainSvc', shoe_id)
+        return $http({
+            method: "PUT",
+            url: "/api/shoes/delete",
+            data: {
+                shoe_id: shoe_id
+            }
+        })
+        .then (function(response){
+            return response;
         })
     }
 

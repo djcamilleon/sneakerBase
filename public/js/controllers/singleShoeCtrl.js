@@ -16,4 +16,11 @@ angular.module('sneakerBase').controller('singleShoeCtrl', function($scope, $sta
     $scope.init = function() {
         $scope.slickOn = true;
     }
+
+     $scope.deleteShoeFromUser = function (id) {
+        //  console.log('this is the id from the singleShoeCtrl', id)
+        mainSvc.deleteShoe(id).then(function(response){
+            console.log('Successfully removed from user_id.')
+        })
+    }
 });

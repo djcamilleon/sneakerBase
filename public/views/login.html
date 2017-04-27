@@ -1,10 +1,10 @@
 <section class='loginBackground'>
     <div class='buttons'>
-        <button class='loginButton-2'>
-            <a class='googleLinks' href="/auth/google">Login</a>
-        </button>
-        <button class='logoutButton'>
-            <a class='googleLinks' href="/logout">Logout</a>
-        </button>
+        <a href="/auth/google" class='googleLinks'>
+            <button ng-if="!loggedIn" class='loginButton-2'>Login</button>
+        </a>
+        <a href="/logout" class='googleLinks'>
+            <button ng-if="loggedIn" class='logoutButton'>Logout</button>
+        </a>
     </div>
 </section>

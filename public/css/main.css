@@ -29,20 +29,25 @@ a:visited:active {
     background-color: gold;
     display: flex;
     flex-direction: row;
-    /*position: fixed;*/
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .title {
     word-break: keep-all;
     font-size: 5vw;
     font-family: 'Barrio', cursive;
+    display: flex;
+    /*align-items: center;
+    justify-content: center;*/
 }
 
 .headerImage {
     height: 100%;
 }
 
-.main-nav {
+.nav {
     font-size: 24px;
     font-weight: bold;
     display: flex;
@@ -87,9 +92,9 @@ a:visited:active {
 }
 
 .background {
-    height: 88VH;
+    height: 100vh;
     width: 100%;
-    background: url(../images/background-images/dgddxrrft80-cameron-kirby.jpg) no-repeat center;
+    background: url(../images/background-images/dgddxrrft80-cameron-kirby.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -101,16 +106,24 @@ a:visited:active {
     font-family: 'Amatic SC', cursive;
     font-size: 42px;
     color: gold;
+    position: relative;
+}
+
+.home-welcome {
+    padding-top: 90px;
+    font-size: 42px;
 }
 
 .loginBackground {
-    height: 88VH;
+    height: 100vh;
     width: 100%;
-    background: url(../images/background-images/kjsdwqqmadk-yamon-figurs.jpg) no-repeat center;
+    background: url(../images/background-images/kjsdwqqmadk-yamon-figurs.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    position: fixed;
+    top: 5vw;
 }
 
 .loginButton {
@@ -170,10 +183,15 @@ a:visited:active {
 }
 
 .buttons {
-    padding: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 72px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .googleLinks {
@@ -189,6 +207,14 @@ a:visited:active {
     padding-bottom: 8px;
 }
 
+.testLoginInfo {
+    color: gold;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    padding: 40px;
+    text-shadow: 3px 2px black;
+}
+
 .profile {
     display: flex;
     flex-direction: row;
@@ -201,7 +227,7 @@ a:visited:active {
     background: gold;
     position: fixed;
     left: 0;
-    top: 96;
+    top: 5vw;
     height: 100%;
 }
 
@@ -246,6 +272,7 @@ a:visited:active {
 .shoeDisplay {
     width: 84vw;
     position: relative;
+    top: 5vw;
     left: 15vw;
     padding-left: 2px;
     display: flex;
@@ -325,18 +352,21 @@ a:visited:active {
 }
 
 .picAndData {
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 40px;
 }
 
 .singleImageBox {
     /*display: flex;*/
     /*height: 400px;*/
-    width: 600px;
+    padding-right: 1%;
+    width: 50%;
     overflow: none;
 }
 
@@ -345,19 +375,22 @@ a:visited:active {
 }
 
 .shoeData {
+    width: 50%;
+    padding-left: 1%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     font-size: 24px;
     color: gold;
-    margin: auto;
+    /*margin: auto;*/
 }
 
 .singleShoeTitle {
     font-family: 'Barrio', cursive;
     font-size: 36px;
     font-weight: bold;
+    padding-top: 5px;
 }
 
 .shoeInfo {
@@ -367,6 +400,15 @@ a:visited:active {
 }
 
 .shoeDetails {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Barrio', cursive;
+    font-size: 36px;
+    color: gold;
+    width: 100%;
+    padding-left: 20%;
+    padding-right: 20%;
     font-family: 'Amatic SC', cursive;
     font-size: 32px;
     padding-top: 20px;
@@ -389,7 +431,7 @@ a:visited:active {
     align-items: center;
     height: 60px;
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
 }
 
 .profileReturnButton {
@@ -407,7 +449,7 @@ a:visited:active {
     border-radius: 5px;
     font-size: 24px;
     border: none;
-    width: 250px;
+    width: 300px;
 }
 
 .googCalButton {
@@ -433,6 +475,10 @@ a:visited:active {
     align-items: center;
 }
 
+.addShoePage {
+    padding-top: 5vw;
+}
+
 .addShoeHeader {
     font-family: 'Barrio', cursive;
     font-size: 48px;
@@ -453,6 +499,10 @@ a:visited:active {
     width: 100%;
 }
 
+.resetButtonWrapper {
+    padding-top: 10px;
+}
+
 .control-label {
     font-family: 'Amatic SC', cursive;
     font-size: 38px;
@@ -460,7 +510,7 @@ a:visited:active {
 }
 
 .sideBySide {
-    padding-top: 40px;
+    padding-top: 7vw;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -568,9 +618,7 @@ a:visited:active {
 }
 
 .submitNewShoeButtonWrapper{
-    padding-top: 5px;
-     justify-content: center;
-    align-items: center;
+    padding-top: 20px;
 }
 .submitNewShoeButton {
     background:gold;
@@ -635,11 +683,11 @@ a:visited:active {
     }
     .ul-list {
         font-size: 36px;
-        color: green
+        /*color: green*/
     }
     .ul-list:hover {
         font-size: 36px;
-        color: green
+        /*color: green*/
     }
 }
 
@@ -649,7 +697,6 @@ a:visited:active {
         font-size: 32px;
     }
     .shoeDisplay{
-        /*position: relative;*/
         left: 30vw;
     }
     .searchBox {
@@ -660,9 +707,107 @@ a:visited:active {
     }
 }
 
+@media(max-width: 850px) {
+    .welcome {
+        font-size: 24px;
+    }
+    .main-header{
+        height: 45px;
+    }
+    .title {
+        font-size: 42.5px;
+
+    }
+    .totalValue {
+        font-size: 24px;
+    }
+    .searchMenu {
+        display: none;
+    }
+    .shoeDisplay {
+        left: 0;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+    }
+    .mobile-nav-bar {
+        background: gold;
+        width: 12%;
+        height: auto;
+        cursor: pointer;
+        /*position: relative;
+        z-index: 20;*/
+        /*padding: 0;*/
+        /*min-height: 47px;*/
+    }
+    .mobile-nav-bar .mobile-nav-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        display: inline-block;
+        width: 31px;
+        height: 30px;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+    .mobile-nav-bar .mobile-nav-button .bar {
+        width: 100%;
+        float: left;
+        height: 4px;
+        margin-bottom: 5px;
+        background-color: darkred;
+    }
+    .mobile-nav {
+        height: 0;
+        z-index: 10;
+    }
+    .mobile-nav ul {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        transform: translate(0, -300px);
+        -ms-transform: translate(0, -300px);
+        -webkit-transform: translate(0, -300px);
+        transition: all .2s ease-in-out;
+    }
+    .mobile-nav ul li a {
+        display: block;
+        padding: 10px;
+        color: #c7a008;
+        text-decoration: none;
+        background: #3C59A5;
+    }
+    .mobile-nav ul li a:active {
+        background: #3C59A5;
+    }
+    .mobile-nav.show-mobile-nav {
+        height: auto;
+    }
+    .mobile-nav.show-mobile-nav ul {
+        transform: translate(0px);
+        -ms-transform: translate(0px);
+        -webkit-transform: translate(0px);
+    }
+}
+
 @media(max-width: 700px) {
     .searchMenu {
         font-size: 24px;
+    }
+    .buttonsDiv {
+        flex-direction: column;
+        height: 210px;
+        padding-bottom: 40px;
+    }
+    .picAndData {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .singleShoeTitle {
+        font-size: 26px;
     }
 }
 
@@ -670,8 +815,8 @@ a:visited:active {
     .searchMenu {
         display: none;
     }
-    .shoeDisplay {
-        left: 0;
+    .testLoginInfo {
+        font-size: 18px;
     }
 }
 

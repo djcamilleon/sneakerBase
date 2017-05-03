@@ -1,6 +1,6 @@
 <section id="page-top" class="profile">
     <section class="searchMenu">
-        <input class="searchBox" ng-model="search" placeholder="Search By Keyword"></input>
+        <input class="searchBox" ng-model="search" placeholder="Search By Keyword" style="color: gold"></input>
         <h1 class="filterNameHeader">Filter by Brand:</h1>
         <select class="dropdown" id="Brand" ng-model="filter1">
             <option>Adidas</option>
@@ -119,8 +119,9 @@
                     <img class="shoeImage" src="{{shoe.photos[0]}}" />
                 </div>
                 <div class="shoeTitle">
-                    {{shoe.brand}} {{shoe.model}}
-                    <br> {{shoe.nickname}}
+                    {{shoe.brand}}<br>
+                    {{shoe.model}}<br>
+                    <span ng-if="shoe.nickname != null">{{shoe.nickname}}</span>
                 </div>
             </div>
         </div>

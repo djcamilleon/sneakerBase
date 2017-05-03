@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="./css/animate.css">
     <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
 </head>
 
 <body>
@@ -24,8 +25,18 @@
         <div class='main-header'>
             <img src='./images/sneakerbase.png' class='headerImage' alt="SneakerBase Logo" />
             <h1 class='title'>SneakerBase</h1>
-            <nav class='main-nav'>
-                <ul class="links">
+
+            <div class="mobile-nav-bar">
+                <div class="mobile-nav-button">
+                    <i class="bar"></i>
+                    <i class="bar"></i>
+                    <i class="bar"></i>
+                </div>
+            </div>
+
+
+            <nav class='nav mobile-nav'>
+                <ul id='nav' class="links">
                     <li class="ul-list" ng-if="!loggedIn"><a ui-sref='login'>LOGIN</a></li>
                     <li class="ul-list" ng-if="loggedIn">
                         <a ui-sref='login'>LOGOUT</a>
@@ -66,6 +77,7 @@
     <script src="./js/controllers/userPageCtrl.js"></script>
     <script src="./js/controllers/singleShoeCtrl.js"></script>
     <script src="./js/controllers/newShoeCtrl.js"></script>
+    <script src="./js/menu-bar.js"></script>
 </body>
 
 </html>

@@ -36,6 +36,7 @@ CREATE TABLE links (
   url_1 TEXT,
   shoe_id INTEGER
 );
+
 CREATE TABLE photos (
   id SERIAL PRIMARY KEY,
   photo_url TEXT,

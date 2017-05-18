@@ -497,6 +497,8 @@ a:visited:active {
     color: gold;
     text-align: center;
     width: 100%;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .resetButtonWrapper {

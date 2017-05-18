@@ -1,1 +1,3 @@
-delete shoes where id = $1;
+update shoes
+set user_id = null
+where id = $1;

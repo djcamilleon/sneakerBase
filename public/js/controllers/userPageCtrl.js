@@ -14,7 +14,6 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
     var getAllData = function () {
         // console.log('loggedIn from homeCtrl', $scope.loggedIn)
         if ($scope.loggedIn) {
-            //pass into function $scope.userid => service => server => getshoes.db
             mainSvc.getAllData().then(function (response) {
                 $scope.shoes = response.data
                 var shoes = response.data
@@ -37,7 +36,9 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
         // console.log('running getAllData')
         getAllData();
     }, 1000);
-       $scope.resetPage = function () {
+
+
+    $scope.resetPage = function () {
         // console.log('reset')
         $scope.filter1 = "";
         $scope.filter2 = "";
@@ -59,6 +60,7 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
 
     // checkLoggedIn();
 
+   
 
 
 
@@ -70,7 +72,7 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
         $state.go('singleShoe')
     }
 
- 
+
 })
 
 // controller: function($state, $rootScope){

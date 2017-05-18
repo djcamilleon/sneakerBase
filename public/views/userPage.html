@@ -1,6 +1,6 @@
 <section id="page-top" class="profile">
     <section class="searchMenu">
-        <input class="searchBox" ng-model="search" placeholder="Search By Keyword"></input>
+        <input class="searchBox" ng-model="search" placeholder="Search By Keyword" style="color: gold"></input>
         <h1 class="filterNameHeader">Filter by Brand:</h1>
         <select class="dropdown" id="Brand" ng-model="filter1">
             <option>Adidas</option>
@@ -99,6 +99,8 @@
             <option>Reflective</option>
             <option>Strap</option>
             <option>Waterproof</option>
+            <option>Retired</option>
+            <option>Sold</option>
         </select><br>
         <button class="resetButton" ng-click="resetPage()" onclick="location.reload()">Reset</button>
     </section>
@@ -110,7 +112,6 @@
             <div><h1 ng-if="user" class="welcome">Welcome back, {{user[0].first_name}}!</h1></div>
             <div><h2 ng-if="shoes" class="totalValue">The total value of your Sneaker Collection is ${{value}}.</h2></div>
         </div>
-        <div ng-if=''></div>
         <!--create a div, ng-if !loggedin "please log in to see shoes-->
         <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } "
             ng-click="singleShoeView(shoe)">
@@ -119,8 +120,9 @@
                     <img class="shoeImage" src="{{shoe.photos[0]}}" />
                 </div>
                 <div class="shoeTitle">
-                    {{shoe.brand}} {{shoe.model}}
-                    <br> {{shoe.nickname}}
+                    {{shoe.brand}}<br>
+                    {{shoe.model}}<br>
+                    <span ng-if="shoe.nickname != null">{{shoe.nickname}}</span>
                 </div>
             </div>
         </div>

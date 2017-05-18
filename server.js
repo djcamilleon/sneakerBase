@@ -12,8 +12,6 @@ app.use(bodyParser.json())
 
 app.use(express.static(__dirname + '/public'))
 
-// // My original database code
-// // Help from Sterling
 var connectionString = 'postgres://bpdsypig:V8QSTOxMX_9PhzJGMJSw5RS-SGYdNeDx@stampy.db.elephantsql.com:5432/bpdsypig'
 // var connectionString = 'postgres://postgres:zo384602@localhost/sneakers'
 var db = massive.connectSync({ connectionString: connectionString });
@@ -33,11 +31,11 @@ passport.use(new GoogleStrategy({
     clientSecret: config.clientSecret,
     callbackURL: config.callbackURL,
     scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar']
-}, function(accessToken, refreshToken, profile, done) {
-    db.get_user([profile.id], function(err, user) {
+}, function (accessToken, refreshToken, profile, done) {
+    db.get_user([profile.id], function (err, user) {
         if (!user.length) {
 
-            db.create_user([profile.id, profile.name.givenName, profile.name.familyName, accessToken], function(err, new_user) {
+            db.create_user([profile.id, profile.name.givenName, profile.name.familyName, accessToken], function (err, new_user) {
                 if (err) {
                     console.log(err)
                 } else {
@@ -50,12 +48,12 @@ passport.use(new GoogleStrategy({
     })
 }))
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
     done(null, user);
 });
 
-passport.deserializeUser(function(id, done) {
-    db.get_user([id.google_id], function(err, user) {
+passport.deserializeUser(function (id, done) {
+    db.get_user([id.google_id], function (err, user) {
         done(err, user[0]);
     });
 });
@@ -64,13 +62,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/calendar'] }));
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function (req, res) {
     res.redirect('/#!/profile');
     console.log(req.session)
 });
-app.get('/logout', function(req, res) {
+app.get('/logout', function (req, res) {
     console.log('hello', res)
-    req.session.destroy(function(err, data) {
+    req.session.destroy(function (err, data) {
         console.log(data)
 
         res.redirect('/')
@@ -79,140 +77,86 @@ app.get('/logout', function(req, res) {
 
 var serverCtrl = require('./serverCtrl.js')
 
-app.post('/api/newShoe', function (req, res){
+app.post('/api/newShoe', function (req, res) {
     console.log(req.body)
-    db.create_shoe([req.body.brand, req.body.model, req.body.nickname, req.body.colorway, req.body.primary_color, req.body.style_code, req.body.size, req.body.details, req.body.release_date, req.body.price, req.body.associated_athlete, req.body.forefoot_cushioning_technology, req.body.heel_cushioning_technology, req.body.type, req.body.user_id], function(err, shoe_id){
-        console.log('This is from server.js', shoe_id)
-        res.status(200).send(shoe_id);
+    db.create_shoe([req.body.brand, req.body.model, req.body.nickname, req.body.colorway, req.body.primary_color, req.body.style_code, req.body.size, req.body.details, req.body.release_date, req.body.price, req.body.associated_athlete, req.body.forefoot_cushioning_technology, req.body.heel_cushioning_technology, req.body.type, req.body.user_id], function (err, shoe) {
+        shoe = shoe[0];
+        console.log('This is from server.js', shoe)
+
+        var details = req.body.features;
+        console.log('This is the details obj from server.js', details);
+
+        var features = details.features.map(function (val) {
+            return { shoe_id: shoe.id, feature: val.text };
+        });
+        var links = details.links.map(function (val) {
+            return { shoe_id: shoe.id, url_1: val.text };
+        });
+        var photos = details.features.map(function (val) {
+            return { shoe_id: shoe.id, photo_url: val.text };
+        });
+        console.log(links, photos);
+        db.features.insert(features, function (err, result) {
+            if (err) {
+                return next(err)
+            }
+            db.links.insert(links, function (err, result) {
+                if (err) {
+                    return next(err);
+                }
+                db.photos.insert(photos, function (err, result) {
+                    if (err) {
+                        return next(err)
+                    }
+                    res.status(200).send("Shoe added successfully!");
+                })
+            })
+        })
     })
 })
 
-app.post('/api/newShoe/details', function(req, res, next){
-    db.create_details([req.body.shoe_id, req.body.feature], function(err, result){
-        if(err){ return next(err) }
+app.post('/api/newShoe/details', function (req, res, next) {
+    var obj = req.body.feature.features;
+    var features = [];
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i]) {
+            features.push({ shoe_id: req.body.shoe_id, feature: obj[i] });
+        }
+    }
+    console.log('features obj from server.js', features, obj)
+    db.features.insert(features, function (err, result) {
+        if (err) {
+            return next(err)
+        }
+
+
+
         console.log("result: ", result[0]);
         res.status(200).json('Successfully added Features!');
     })
 });
 
-// app.post('/api/shoes/:add_shoe', function(req, res) {
-//     // console.log(req.body);
-//     db.create_shoe([req.body.brand, req.body.model, req.body.nickname, req.body.colorway, req.body.primary_color, req.body.details, req.body.release_date, req.body.price, req.body.associated_athlete, req.body.forefoot_cushioning_technology, req.body.heel_cushioning_technology, req.body.type], function(err, shoe_id) {
-//         if (err) {
-//             res.status(500).json(err);
-//         } else {
-//             var id_shoe = shoe_id[0].id;
-//             for (var i = 0; i < req.body.features.length; i++) {
-//                 db.create_features([req.body.features[i], id_shoe], function(err, success) {
-//                     if (err) {
-//                         console.log(err)
-//                         res.status(500).json(err);
-//                     }
-//                 })
-//             }
-//             for (var j = 0; j < req.body.urls.length; j++) {
-//                 db.create_links([req.body.urls[j], shoe_id], function(err, success) {
-//                     if (err) {
-//                         console.log(err)
-//                         res.status(500).json(err);
-//                     }
-
-//                 })
-//             }
-//             for (var k = 0; k < req.body.photo_urls.length; k++) {
-//                 db.create_photos([req.body.photo_urls[k], shoe_id], function(err, success) {
-//                     if (err) {
-//                         console.log(err)
-//                         res.status(500).json(err);
-//                     }
-//                 })
-//             }
-//             res.status(200).json('Successfully added!')
-//         }
-//     });
-// });
-
-// app.post('/api/shoes/:add_shoe', function(req, res){
-//     // console.log(req.body);
-//     db.create_shoe([req.body.brand, req.body.model, req.body.nickname, req.body.colorway, req.body.primary_color, req.body.details, req.body.release_date, req.body.price, req.body.associated_athlete, req.body.forefoot_cushioning_technology, req.body.heel_cushioning_technology, req.body.type], function(err, shoe_id){
-//         if(err){
-//             res.status(500).json(err);
-//         }
-//         else {
-//             var id_shoe = shoe_id[0].id;
-//             for(var i = 0; i < req.body.features.length; i++){
-//                 db.create_features([req.body.features[i], id_shoe], function (err, success){
-//                     if(err){
-//                         console.log(err)
-//                     res.status(500).json(err);
-//                 }
-//                 })
-//             }
-//             for(var j = 0; j < req.body.urls.length; j++){
-//                 db.create_links([req.body.urls[j], id_shoe], function(err, success){
-//                      if(err){
-//                          console.log(err)
-//                     res.status(500).json(err);
-//                 }
-
-//                 })
-//             }
-//                     res.status(200).json('Successfully added!')
-//         }
-//     });
-
-
-
-// })
-
-// app.post('/api/shoes/:shoe_id', function(req, res) {
-//     req.body.shoe_id = `{${req.body.shoe_id}}`
-//     db.add_shoe_to_user([req.body.user_id, req.body.shoe_id], function(err, success) {
-//         if (err) {
-//             res.status(500).json(err);
-//         } else {
-//             res.status(200).json('Successfully added to your Collection!')
-//         }
-//     })
-// })
-
 app.get('/api/everything', serverCtrl.getShoes)
 
-// app.put('/fill', function(req, res){
-//     db.update_feature([2, req.body.features], function(err, s){
-
-//     })
-// })
-
-
-app.put('/api/shoes/:id', function(req, res) {
-    db.put_shoe([req.params.id, req.body.brand, req.body.model, req.body.nickname, req.body.colorway, req.body.primary_color, req.body.details, req.body.release_date, req.body.price, req.body.associated_athlete, req.body.forefoot_cushioning_technology, req.body.heel_cushioning_technology, req.body.feature_1, req.body.feature_2, req.body.type, req.body.url_1, req.body.url_2, req.body.url_3, req.body.user_id], function(err, success) {
+app.put('/api/shoes/delete/', function (req, res) {
+    console.log(req.body.shoe_id)
+    db.delete_shoe([req.body.shoe_id], function (err, success) {
         if (err) {
             res.status(500).json(err);
         } else {
-            res.status(200).json('Successfully updated!');
-        }
-    })
-})
-
-app.delete('/api/shoes/delete/:shoe_id', function(req, res) {
-    db.delete_shoe([req.params.id], function(err, success) {
-        if (err) {
-            res.status(500).json(err);
-        } else {
-            res.status(200).json('Successfully deleted.');
+            res.status(200).json('Successfully removed from user_id.');
         }
     })
 })
 
 
-app.get('/api/getUser', function(req, res) {
-    console.log('api/getuser',req.session);
-    console.log('api/getuser',req.session.passport);
+app.get('/api/getUser', function (req, res) {
+    console.log('api/getuser', req.session);
+    console.log('api/getuser', req.session.passport);
     if (req.session.passport.user) {
-        db.get_user([req.session.passport.user.google_id], function(err, success) {
+        db.get_user([req.session.passport.user.google_id], function (err, success) {
             if (err) {
-                console.log('err',err)
+                console.log('err', err)
                 res.status(500).json(err);
             } else {
                 res.status(200).send(success);
@@ -227,6 +171,6 @@ app.get('/api/getUser', function(req, res) {
 
 
 var port = 3000;
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('Listening on port ' + port)
 })

@@ -1,11 +1,11 @@
 angular.module('sneakerBase')
     .controller('loginCtrl', function($scope){
-// app.get('/api/getUser', function(req, res) {
-//     console.log('loginCtrl', req.user);
-//     if (req.user) {
-//         return res.status(200).send(req.user)
-//     }
-//     res.status(404).send('User not found')
-// })
-
+        if ($scope.userId) {
+            console.log('This is the userId from the loginCtrl', userId)
+            $scope.loggedIn = true;
+            // console.log('loggedIn from MainSvc', $scope.loggedIn)
+        }
+        else {
+            $scope.loggedIn = false;
+        }
 })

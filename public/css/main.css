@@ -573,9 +573,9 @@ a:visited:active {
     font-family: 'Amatic SC', cursive;
     font-size: 22px;
     color: gold;
-    /*padding-left: 230px;*/
     padding-bottom: 40px;
     line-height: 125%;
+    
 }
 
 .techUsed2 li {
@@ -583,18 +583,24 @@ a:visited:active {
     padding-left: 20px;
 }
 
+.thanks:hover{
+    cursor: pointer;
+    color: blue;
+    font-size: 26px;
+}
+
 .sneakerBaseLogoWrapper {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .sneakerBaseLogo {
     width: 50vw;
     height: auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .endTitle {

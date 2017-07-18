@@ -7,19 +7,22 @@
             <button class='logoutButton'>Logout</button>
         </a>
     </div>
-    <!--<div class='testLoginInfo'>
-        Test Login Information:<br>
-        Email Address: sneakerbasetestlogin@gmail.com<br>
-        Password: Tester101<br>
-        Yes, the password begins with a capital 'T'.<br>
-        <br>
-        This test login includes a partial sample<br>
-        of my personal collection, so please<br>
-        feel free to look around! If you<br>
-        have any questions, reach out to me<br>
-        at SneakerBaseTestLogin@GMail.com!
-        <div ng-if=''></div>
-    </div>-->
+    <div class="walkThruVideoContainer">
+        <h3 class="fullScreenRec">*This video is best viewed full screen*</h3>
+        <div class="fullScreenRec2">
+            <p>For brief overview, watch video to the 3-minute mark.</p>
+            <p>For long overview, watch video in its entirety!</p>
+        </div>
+        <video class="walkThruVideo" id="walkThruVideo" width="auto" height=450 preload controls>
+            <source src="../videos/Recording_1_H.264.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+            <source src="../videos/Recording_1.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+            <source src="../videos/Recording_1.webmhd.webm" type='video/webm; codecs="vp8, vorbis"' />
+            <object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="640" height="360">
+		<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+		<param name="allowFullScreen" value="true" />
+		<param name="wmode" value="transparent" />
+		<param name="flashvars" value='config={"clip":{"url":"HTML5Sample_flv.flv","autoPlay":false,"autoBuffering":true}}' />
+	        </object>
+        </video>
+    </div>
 </section>
-
-www.medallada.me

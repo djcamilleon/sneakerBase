@@ -4,6 +4,7 @@
         <h1 class="filterNameHeader">Filter by Brand:</h1>
         <select class="dropdown" id="Brand" ng-model="filter1">
             <option>Adidas</option>
+            <option>Asics</option>
             <option>Converse</option>
             <option>Crocs</option>
             <option>DC Shoes</option>
@@ -122,7 +123,8 @@
                 <div class="shoeTitle">
                     {{shoe.brand}}<br>
                     {{shoe.model}}<br>
-                    <span ng-if="shoe.nickname != null">{{shoe.nickname}}</span>
+                     <span ng-if="shoe.nickname != null">{{shoe.nickname}} - </span>
+                     {{shoe.price}}
                 </div>
             </div>
         </div>

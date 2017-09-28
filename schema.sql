@@ -44,7 +44,7 @@ CREATE TABLE photos (
 );
 
 -- insert into shoes (brand, model, nickname, colorway, primary_color, style_code, size, details, release_date, price, associated_athlete, forefoot_cushioning_technology, heel_cushioning_technology, type, user_id) 
--- values(
+-- values
 
 -- insert into users (google_id, first_name, last_name, token)
 -- values

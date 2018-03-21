@@ -259,9 +259,41 @@ a:visited:active {
     font-family: 'Amatic SC', cursive;
 }
 
+.filterNameHeaderSub {
+    font-family: 'Amatic SC', cursive;
+}
+
 .dropdown {
     font-family: 'Amatic SC', cursive;
+    font-size: 26px;
     width: 15vw;
+    background: darkred;
+    color: gold;
+}
+
+.dropdown-1 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 27px;
+    /* width: 15vw; */
+    min-width: 15vw;
+    background: darkred;
+    color: gold;
+}
+
+.dropdown-2 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 27px;
+    /* width: 15vw; */
+    min-width: 15vw;
+    background: darkred;
+    color: gold;
+}
+
+.dropdown-3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 27px;
+    /* width: 15vw; */
+    min-width: 15vw;
     background: darkred;
     color: gold;
 }

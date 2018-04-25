@@ -2,52 +2,12 @@
     <section class="searchMenu">
         <input class="searchBox" ng-model="search" placeholder="Search By Keyword" style="color: gold"></input>
         <h1 class="filterNameHeader">Filter by Brand:</h1>
-        <!-- <div>
-            <select class="dropdown-1" id="Brand" ng-model="filter1">
-            <label style=color:blue; for="dropdown-1">Some Label</label>
-            <label class="filterNameHeaderSub"; style=color:red >A thru D:<label>
-            <option>Adidas</option>
-            <option>Airwalk</option>
-            <option>And1</option>
-            <option>Asics</option>
-            <option>BrandBlack</option>
-            <option>Brooks</option>
-            <option>Converse</option>
-            <option>Creative Recreation</option>
-            <option>Crocs</option>
-            <option>DC Shoes</option>
-            <option>Diadora</option>
-            <option>Dr. Martens</option>
-        </select>
-        </div>
-        <select class="dropdown-2" id="Brand" ng-model="filter1">
-            <option>Emerica</option>
-            <option>Etonic</option>
-            <option>Ewing</option>
-            <option>Fila</option>
-            <option>FitFlop</option>
-            <option>Jordan Brand</option>
-            <option>New Balance</option>
-            <option>Nike</option>
-            <option>Puma</option>
-            <option>Reebok</option>
-            <option>Salomon</option>
-            <option>Saucony</option>
-        </select>
-        <select class="dropdown-3" id="Brand" ng-model="filter1">
-            <option>Skechers</option>
-            <option>SNKR Project</option>
-            <option>Supra</option>
-            <option>Timberland</option>
-            <option>Umbro</option>
-            <option>Under Armour</option>
-            <option>Vans</option>
-        </select> -->
         <select class="dropdown" id="Brand" ng-model="filter1">
             <option>Adidas</option>
             <option>Airwalk</option>
             <option>And1</option>
             <option>Asics</option>
+            <option>Pirkenstock</option>
             <option>BrandBlack</option>
             <option>Brooks</option>
             <option>Converse</option>
@@ -66,6 +26,7 @@
             <option>Jordan Brand</option>
             <option>New Balance</option>
             <option>Nike</option>
+            <option>North Face</option>
             <option>Puma</option>
             <option>Reebok</option>
             <option>Salomon</option>
@@ -152,6 +113,7 @@
             <option>Football Cross Trainer</option>
             <option>Hiking</option>
             <option>Running</option>
+            <option>Sandal</option>
             <option>Skateboarding</option>
             <option>Sneaker Boot</option>
             <option>Soccer</option>
@@ -164,6 +126,7 @@
             <option>Alternate Laces</option>
             <option>Carbon Fiber</option>
             <option>Collaboration</option>
+            <option>Daily Drivers</option>
             <option>Foamposite</option>
             <option>Huarache-style Fit</option>
             <option>Lace Lock</option>
@@ -182,21 +145,24 @@
 
     <section class="shoeDisplay">
         <div class="totalValueWrapper">
-            <div><h1 ng-if="user" class="welcome">Welcome back, {{user[0].first_name}}!</h1></div>
-            <div><h2 ng-if="shoes" class="totalValue">The total value of your Sneaker Collection is ${{value}}.</h2></div>
+            <div>
+                <h1 ng-if="user" class="welcome">Welcome back, {{user[0].first_name}}!</h1>
+            </div>
+            <div>
+                <h2 ng-if="shoes" class="totalValue">The total value of your Sneaker Collection is ${{value}}.</h2>
+            </div>
         </div>
         <!--create a div, ng-if !loggedin "please log in to see shoes-->
-        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } "
+        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } | filter: { designer:filter6 }"
             ng-click="singleShoeView(shoe)">
             <div class="shoeBox">
                 <div class="imageBox">
                     <img class="shoeImage" src="{{shoe.photos[0]}}" />
                 </div>
                 <div class="shoeTitle">
-                    {{shoe.brand}}<br>
-                    {{shoe.model}}<br>
-                     <span ng-if="shoe.nickname != null">{{shoe.nickname}} - </span>
-                     {{shoe.price}}
+                    {{shoe.brand}}<br> {{shoe.model}}
+                    <br>
+                    <span ng-if="shoe.nickname != null">{{shoe.nickname}} - </span> {{shoe.price}}
                 </div>
             </div>
         </div>

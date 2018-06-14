@@ -8,7 +8,7 @@
             <option>And1</option>
             <option>Anta</option>
             <option>Asics</option>
-            <option>Pirkenstock</option>
+            <option>Birkenstock</option>
             <option>BrandBlack</option>
             <option>Brooks</option>
             <option>Converse</option>
@@ -103,10 +103,66 @@
             <option>Orange</option>
             <option>Purple</option>
             <option>Red</option>
+            <option>Reflective Black</option>
             <option>Reflective Silver</option>
             <option>Silver</option>
             <option>Tan/Beige</option>
             <option>Volt</option>
+            <option>White</option>
+            <option>Xeno Reflective Black</option>
+            <option>Xeno Reflective Yellow</option>
+            <option>Yellow</option>
+        </select>
+        <h1 class="filterNameHeader">Filter by Accent Color 1:</h1>
+        <select class="dropdown" id="primary_color" ng-model="filter7">
+            <option>Black</option>
+            <option>Blue</option>
+            <option>Brown</option>
+            <option>Burgundy</option>
+            <option>Copper</option>
+            <option>Cork</option>
+            <option>Cream</option>
+            <option>Crimson</option>
+            <option>Glow In The Dark</option>
+            <option>Gold</option>
+            <option>Green</option>
+            <option>Grey</option>
+            <option>Gum</option>
+            <option>Mango</option>
+            <option>Multicolor</option>
+            <option>Orange</option>
+            <option>Pink</option>
+            <option>Purple</option>
+            <option>Purple/Pink/Orange Sunset Fade</option>
+            <option>Red</option>
+            <option>Red/Yellow/Orange Fade</option>
+            <option>Sail</option>
+            <option>Silver</option>
+            <option>Speckled White</option>
+            <option>Tan/Beige</option>
+            <option>Turquoise</option>
+            <option>White</option>
+            <option>Yellow</option>
+        </select>
+        <h1 class="filterNameHeader">Filter by Accent Color 2:</h1>
+        <select class="dropdown" id="primary_color" ng-model="filter8">
+            <option>Black</option>
+            <option>Blue</option>
+            <option>Blue, White, Black and Gold Speckle</option>
+            <option>Brown</option>
+            <option>Cream</option>
+            <option>Gold</option>
+            <option>Green</option>
+            <option>Grey</option>
+            <option>Grey/White/Black Marble</option>
+            <option>Gum</option>
+            <option>Kente</option>
+            <option>Orange</option>
+            <option>Purple</option>
+            <option>Purple and Yellow</option>
+            <option>Red</option>
+            <option>Reflective Silver</option>
+            <option>Silver</option>
             <option>White</option>
             <option>Yellow</option>
         </select>
@@ -142,6 +198,7 @@
             <option>Laser-Etching</option>
             <option>Patent Leather</option>
             <option>Reflective</option>
+            <option>StockX</option>
             <option>Strap</option>
             <option>Waterproof</option>
             <option>Retired</option>
@@ -193,7 +250,7 @@
             </div>
         </div>
         <!--create a div, ng-if !loggedin "please log in to see shoes-->
-        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } | filter: { designer:filter6 }"
+        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } | filter: { designer:filter6 } | filter: { accent_color1:filter7 } | filter: { accent_color2:filter8 }"
             ng-click="singleShoeView(shoe)">
             <div class="shoeBox">
                 <div class="imageBox">

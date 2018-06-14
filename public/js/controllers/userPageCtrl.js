@@ -1,6 +1,6 @@
-angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainSvc, $state) {
+angular.module('sneakerBase').controller('userPageCtrl', function($scope, mainSvc, $state) {
     $scope.loggedIn = false;
-    mainSvc.getUser().then(function (result) {
+    mainSvc.getUser().then(function(result) {
         $scope.user = result;
         console.log('result from MainSvc.getUser', $scope.user)
         $scope.userId = result[0].id;
@@ -11,18 +11,18 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
         }
     });
 
-    var getAllData = function () {
+    var getAllData = function() {
         // console.log('loggedIn from homeCtrl', $scope.loggedIn)
         if ($scope.loggedIn) {
-            mainSvc.getAllData().then(function (response) {
+            mainSvc.getAllData().then(function(response) {
                 $scope.shoes = response.data
                 var shoes = response.data
-                // console.log('from getAllData', $scope.shoes);
+                    // console.log('from getAllData', $scope.shoes);
 
                 var sum = 0;
                 for (var i = 0; i < shoes.length; i++) {
                     var priceAsNumbers = shoes[i].price.replace("$", "").replace(".00", "")
-                    // console.log(priceAsNumbers);
+                        // console.log(priceAsNumbers);
                     sum += Number(priceAsNumbers);
                 }
                 $scope.value = sum.toLocaleString();
@@ -32,41 +32,44 @@ angular.module('sneakerBase').controller('userPageCtrl', function ($scope, mainS
             // console.log('There is no user data')
         }
     }
-    setTimeout(function () {
+    setTimeout(function() {
         // console.log('running getAllData')
         getAllData();
     }, 1000);
 
 
-    $scope.resetPage = function () {
-        // console.log('reset')
-        $scope.filter1 = "";
-        $scope.filter2 = "";
-        $scope.filter3 = "";
-        $scope.filter4 = "";
-        $scope.filter5 = "";
-    }
-    // var checkLoggedIn = $interval(function () {
-    //     if ($scope.loggedIn === true) {
-    //         console.log('running getAllData');
-    //         $interval.cancel(checkLoggedIn)
-    //         getAllData();
-    //         $scope.resetPage();
-    //     }
-    //     else {
-    //         console.log('Not yet!');
-    //     }
-    // }, 50);
+    $scope.resetPage = function() {
+            // console.log('reset')
+            $scope.filter1 = "";
+            $scope.filter2 = "";
+            $scope.filter3 = "";
+            $scope.filter4 = "";
+            $scope.filter5 = "";
+            $scope.filter6 = "";
+            $scope.filter7 = "";
+            $scope.filter8 = "";
+        }
+        // var checkLoggedIn = $interval(function () {
+        //     if ($scope.loggedIn === true) {
+        //         console.log('running getAllData');
+        //         $interval.cancel(checkLoggedIn)
+        //         getAllData();
+        //         $scope.resetPage();
+        //     }
+        //     else {
+        //         console.log('Not yet!');
+        //     }
+        // }, 50);
 
     // checkLoggedIn();
 
-   
 
 
 
 
 
-    $scope.singleShoeView = function (oneShoeObject) {
+
+    $scope.singleShoeView = function(oneShoeObject) {
 
         mainSvc.shoe = oneShoeObject
         $state.go('singleShoe')

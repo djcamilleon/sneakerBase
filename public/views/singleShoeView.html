@@ -35,6 +35,8 @@
                 <span ng-if='shoe.designer != null'>Designer: {{shoe.designer}}<br></span>
                 <span ng-if='shoe.size != null'>Size Owned: {{shoe.size}}<br></span>
                 <span ng-if='shoe.primary_color != null'>Primary Color of Upper: {{shoe.primary_color}}<br></span>
+                <span ng-if='shoe.accent_color != null'>Accent Color 1: {{shoe.accent_color1}}<br></span>
+                <span ng-if='shoe.accent_color != null'>Accent Color 2: {{shoe.accent_color2}}<br></span>
                 <span ng-if='shoe.type != null'>Type: {{shoe.type}}<br></span>
                 <span ng-if="shoe.release_date != null">Release Date: {{shoe.release_date}}<br></span>
                 <span ng-if='shoe.price != null'>Price at Time of Release:{{shoe.price}}<br></span>
@@ -60,7 +62,7 @@
                 <span ng-if="shoe.links[7] != null">Link For More Info: <a class="anchor" ng-href="{{shoe.links[7]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
                 <span ng-if="shoe.links[8] != null">Link For More Info: <a class="anchor" ng-href="{{shoe.links[8]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
                 <span ng-if="shoe.links[9] != null">Link For More Info: <a class="anchor" ng-href="{{shoe.links[9]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
-                <span ng-if="shoe.links[9] != null">Link For More Info: <a class="anchor" ng-href="{{shoe.links[10]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
+                <span ng-if="shoe.links[10] != null">Link For More Info: <a class="anchor" ng-href="{{shoe.links[10]}}" target="blank">{{shoe.model}} {{shoe.nickname}}</a><br></span>
             </div>
         </div>
     </div>

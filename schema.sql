@@ -60,3 +60,30 @@ CREATE TABLE users (
 
 insert into users (google_id, first_name, last_name, token)
 values
+
+CREATE TABLE shoes (
+  id SERIAL PRIMARY KEY,
+  brand VARCHAR(255),
+  model VARCHAR(255),
+  display_model VARCHAR(255),
+  sort_model VARCHAR(255),
+  nickname VARCHAR(255),
+  colorway VARCHAR(255),
+  primary_color VARCHAR(255),
+  accent_color1 VARCHAR(255),
+  accent_color2 VARCHAR(255),
+  style_code VARCHAR(255),
+  size VARCHAR(255),
+  designer VARCHAR(255),
+  details TEXT,
+  release_date VARCHAR(255),
+  price VARCHAR(255),
+  associated_athlete VARCHAR(255),
+  forefoot_cushioning_technology TEXT,
+  heel_cushioning_technology TEXT,
+  type VARCHAR(255),
+  user_id INTEGER
+);
+
+insert into shoes (brand, model, display_model, sort_model, nickname, colorway, primary_color, accent_color1, accent_color2, style_code, size, designer, details, release_date,price, associated_athlete, forefoot_cushioning_technology, heel_cushioning_technology, type, user_id) 
+values

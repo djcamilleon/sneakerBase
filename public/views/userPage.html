@@ -13,6 +13,7 @@
             <option>BrandBlack</option>
             <option>British Knights</option>
             <option>Brooks</option>
+            <option>Champion</option>
             <option>Converse</option>
             <option>Creative Recreation</option>
             <option>Crocs</option>
@@ -93,6 +94,7 @@
             <option>Stefan Janoski</option>
             <option>Stephen "Steph" Curry</option>
             <option>Stephon Marbury</option>
+            <option>Tim Duncan</option>
             <option>Tim Hardaway</option>
             <option>Tracy McGrady</option>
             <option>Vince Carter</option>
@@ -144,6 +146,7 @@
             <option>Gum</option>
             <option>Mango</option>
             <option>Multicolor</option>
+            <optio>Navy</optio>
             <option>Orange</option>
             <option>Pink</option>
             <option>Purple</option>
@@ -212,6 +215,7 @@
             <option>Laceless Upper</option>
             <option>Laser-Etching</option>
             <option>Michigan Wolverines</option>
+            <option>OG‘s</option>
             <option>Patent Leather</option>
             <option>Reflective</option>
             <option>StockX</option>
@@ -228,6 +232,7 @@
             <option>Charles "Chuck" Taylor</option>
             <option>D’Wayne Edwards</option>
             <option>David Raysse</option>
+            <option>E. Scott Morris</section>
             <option>Eric Avar</option>
             <option>Gentry Humphrey</option>
             <option>George Robusti</option>
@@ -244,10 +249,13 @@
             <option>Peter C. Moore</option>
             <option>Rob Lee</option>
             <option>Robbie Fuller</option>
+            <option>Roy Yun</option>
             <option>Scott Hewett</option>
             <option>Sinisa Egelja</option>
             <option>Tate Kuerbis</option>
             <option>Tinker Hatfield</option>
+            <option>Tinker Hatfield & Mark Smith</option>
+            <option>Tinker Hatfield & Tom Luedecke</option>
             <option>Tom Luedecke</option>
             <option>Tony Hardman</option>
             <option>Tracy Teague</option>
@@ -269,7 +277,7 @@
             </div>
         </div>
         <!--create a div, ng-if !loggedin "please log in to see shoes-->
-        <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } | filter: { designer:filter6 } | filter: { accent_color1:filter7 } | filter: { accent_color2:filter8 }"
+        <!-- <div ng-repeat="shoe in shoes | orderBy:['brand','model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } | filter: { designer:filter6 } | filter: { accent_color1:filter7 } | filter: { accent_color2:filter8 }"
             ng-click="singleShoeView(shoe)">
             <div class="shoeBox">
                 <div class="imageBox">
@@ -277,6 +285,20 @@
                 </div>
                 <div class="shoeTitle">
                     {{shoe.brand}}<br> {{shoe.model}}
+                    <br>
+                    <span ng-if="shoe.nickname != null">{{shoe.nickname}} - </span> {{shoe.price}}
+                </div>
+            </div>
+        </div> -->
+
+        <div ng-repeat="shoe in shoes | orderBy:['brand','sort_model','nickname'] | filter: search | filter: { brand:filter1 } | filter: { associated_athlete:filter2 } | filter: { primary_color:filter3 } | filter: { type:filter4 } | filter: { features:filter5 } | filter: { designer:filter6 } | filter: { accent_color1:filter7 } | filter: { accent_color2:filter8 }"
+            ng-click="singleShoeView(shoe)">
+            <div class="shoeBox">
+                <div class="imageBox">
+                    <img class="shoeImage" src="{{shoe.photos[0]}}" />
+                </div>
+                <div class="shoeTitle">
+                    {{shoe.brand}}<br> {{shoe.display_model}}
                     <br>
                     <span ng-if="shoe.nickname != null">{{shoe.nickname}} - </span> {{shoe.price}}
                 </div>

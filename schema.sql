@@ -23,7 +23,7 @@ CREATE TABLE shoes (
   user_id INTEGER
 );
 
-insert into shoes (brand, display_model, sort_model, nickname, colorway, primary_color, accent_color1, accent_color2, lonk_nickname, style_code, size, designer, model_details, colorway_details, release_date,price, associated_athlete, forefoot_cushioning_technology, heel_cushioning_technology, type, user_id) 
+insert into shoes (brand, display_model, sort_model, nickname, colorway, primary_color, accent_color1, accent_color2, link_nickname, style_code, size, designer, model_details, colorway_details, release_date,price, associated_athlete, forefoot_cushioning_technology, heel_cushioning_technology, type, user_id) 
 values
 
 CREATE TABLE features (
